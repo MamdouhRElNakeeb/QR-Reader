@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">QR Reader</string>
+    <string name="cam_permission_txt">You must grant camera permission</string>
+    <string name="scan_code">Scan Code</string>
+
+    <string name="action_back">Back</string>
+    <string name="action_forward">Forward</string>
+</resources>

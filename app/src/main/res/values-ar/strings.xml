@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">QR Reader</string>
+    <string name="cam_permission_txt">يجب أن تسمح بإستخدام الكاميرا</string>
+    <string name="scan_code">إمسح الكود</string>
+
+
+    <string name="action_back">رجوع</string>
+    <string name="action_forward">تقدم</string>
+</resources>
