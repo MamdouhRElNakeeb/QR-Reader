@@ -1,11 +1,8 @@
 package com.qrreader;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.PointF;
-import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -15,32 +12,31 @@ import android.util.Log;
 import android.util.Patterns;
 import android.util.SparseArray;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
 import com.google.android.gms.vision.barcode.Barcode;
 
 import java.util.List;
-import java.util.Locale;
 
 import info.androidhive.barcode.BarcodeReader;
 
 
-public class ScannerActivity extends AppCompatActivity implements BarcodeReader.BarcodeReaderListener  {
+public class ScannerActivity extends AppCompatActivity implements BarcodeReader.BarcodeReaderListener{
 
     LinearLayout scannerLL;
     TextView camPermissionLblTV;
 
-    private QRCodeReaderView qrCodeReaderView;
     BarcodeReader barcodeReader;
+
+
     boolean camPermissionGranted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.scanner_activity);
 
         scannerLL = findViewById(R.id.scannerLL);
@@ -96,45 +92,18 @@ public class ScannerActivity extends AppCompatActivity implements BarcodeReader.
 
             barcodeReader = (BarcodeReader) getSupportFragmentManager().findFragmentById(R.id.barcode_fragment);
 
-//            qrCodeReaderView = new QRCodeReaderView(this);
-//
-//            qrCodeReaderView.setLayoutParams(new LinearLayout.LayoutParams(
-//                    LinearLayout.LayoutParams.MATCH_PARENT,
-//                    LinearLayout.LayoutParams.MATCH_PARENT));
-//
-//            scannerLL.addView(qrCodeReaderView);
-//
-//            qrCodeReaderView.setOnQRCodeReadListener(this);
-//
-//            // Use this function to enable/disable decoding
-//            qrCodeReaderView.setQRDecodingEnabled(true);
-
         }
     }
-
-//    @Override
-//    public void onQRCodeRead(String text, PointF[] points) {
-//
-//        System.out.println("QRCode: " + text);
-//
-//        if (!text.isEmpty() && Patterns.WEB_URL.matcher(text).matches()){
-//
-//            Intent intent = new Intent(ScannerActivity.this, ProductDetailsActivity.class);
-//            intent.putExtra("url", text);
-//            startActivity(intent);
-//
-//        }
-//
-//    }
 
     @Override
     protected void onResume() {
         super.onResume();
 
         if (camPermissionGranted) {
+
             setupQRReader();
-//            qrCodeReaderView.startCamera();
             barcodeReader.resumeScanning();
+
         }
     }
 
@@ -142,9 +111,10 @@ public class ScannerActivity extends AppCompatActivity implements BarcodeReader.
     protected void onPause() {
         super.onPause();
         if (camPermissionGranted){
+
             setupQRReader();
-//            qrCodeReaderView.stopCamera();
             barcodeReader.pauseScanning();
+
         }
     }
 
@@ -192,4 +162,5 @@ public class ScannerActivity extends AppCompatActivity implements BarcodeReader.
     public void onCameraPermissionDenied() {
         Toast.makeText(getApplicationContext(), "Camera permission denied!", Toast.LENGTH_SHORT).show();
     }
+
 }

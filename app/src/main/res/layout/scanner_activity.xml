@@ -41,7 +41,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:visibility="gone"
         android:text="@string/cam_permission_txt"/>
 
     <RelativeLayout
@@ -68,7 +67,5 @@
             app:square_width="@integer/square" />
 
     </RelativeLayout>
-
-
 
 </LinearLayout>

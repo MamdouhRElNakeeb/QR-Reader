@@ -19,18 +19,16 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // Android
     implementation 'com.android.support:appcompat-v7:27.1.0'
     implementation 'com.android.support:design:27.1.0'
-
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    implementation 'com.dlazaro66.qrcodereaderview:qrcodereaderview:2.0.3'
+    // Barcode Reader
+    implementation 'com.github.MamdouhRElNakeeb:Barcode-Reader:1.0.1'
 
-    implementation 'info.androidhive:barcode-reader:1.1.5'
     // google vision library
-    implementation 'com.google.android.gms:play-services-vision:11.8.0'
-
-    implementation 'me.dm7.barcodescanner:zbar:1.9.8'
-
+    implementation 'com.google.android.gms:play-services-vision:11.0.2'
 }
